@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# class TicketsController
 class TicketsController < ApplicationController
   def index
     @tickets = Ticket.all
