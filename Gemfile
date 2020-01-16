@@ -39,6 +39,7 @@ gem 'haml-rails', '~> 2.0'
 gem 'webpacker'
 gem 'gon'
 gem 'jquery-rails'
+gem 'foreman', '~> 0.87.0'
 
 group :development, :test do
   gem 'rspec', '~> 3.9'
