@@ -30,3 +30,7 @@
       %span
         Dig site info:
       = ticket.well_known_text
+  - if part
+    .categor_item_cont
+      .button_ticket
+        = link_to "View", ticket_path(ticket), class: "button_ticket"

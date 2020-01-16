@@ -13,16 +13,51 @@
     font-size: 3em;
   }
   .tickets {
+    position: relative;
+    background: rgba(255, 174, 0, 0.22);
     float: left;
-    width: 50%;
+    width: 48%;
     padding: 15px 0px;
+    margin: 5px;
     font-size: 18px;
     border-radius: 5px;
+    .categor_item_cont {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      border-radius: 5px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,.7);
+      text-align: center;
+      opacity: 0;
+      transition: all 0.5s;
+    }
+    &:hover .categor_item_cont {
+      opacity: 1;
+    }
+    .button_ticket {
+      margin: 15px 0px;
+    }
+    .button_ticket a {
+      font-size: 1.5em;
+      padding: 10px 44px;
+      background: #656565;
+      color: #fafafa;
+      border-radius: 3px;
+    }
+    .button_ticket a:hover {
+      background: #383333;
+    }
   }
   .wrap {
     padding: 0 30px;
   }
 }
+
 .item_show {
   z-index: 1000;
   position: absolute;
@@ -33,6 +68,7 @@
   background-color: #1a1a1a;
   color: #e3e3e3;
   .tickets {
+    background: #1a1a1a;
     float: none;
     font-size: 16px;
     width: 100%;
@@ -69,6 +105,7 @@
       float: none;
       width: 100%;
       font-size: 16px;
+      margin: 0 0 5px 0;
     }
   }
   .item_show {
@@ -87,6 +124,9 @@
     .tickets {
       font-size: 16px;
     }
+    .wrap {
+      padding: 0 15px;
+    }
   }
   .item_show {
     width: 100%;
@@ -99,9 +139,11 @@
     }
     .tickets {
       float: left;
+      margin: 0;
       width: 50%;
       font-size: 12px;
       padding: 10px 0px;
+      border-radius: 0;
     }
     .wrap {
       padding: 0 5px;
