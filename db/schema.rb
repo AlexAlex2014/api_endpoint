@@ -18,21 +18,24 @@ ActiveRecord::Schema.define(version: 2020_01_09_113959) do
   create_table "excavators", force: :cascade do |t|
     t.string "company_name"
     t.string "address"
-    t.string "crew_on_site"
+    t.boolean "crew_on_site"
+    t.bigint "ticket_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ticket_id"], name: "index_excavators_on_ticket_id"
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.integer "request_number"
+    t.string "request_number"
     t.integer "sequence_number"
     t.string "request_type"
     t.datetime "response_due_date_time"
     t.string "primary_service_area_code"
     t.string "additional_service_area_codes"
-    t.string "well_known_text"
+    t.text "well_known_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "excavators", "tickets"
 end

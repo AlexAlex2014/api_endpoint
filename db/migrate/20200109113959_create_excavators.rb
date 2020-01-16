@@ -3,7 +3,8 @@ class CreateExcavators < ActiveRecord::Migration[5.2]
     create_table :excavators do |t|
       t.string :company_name
       t.string :address
-      t.string :crew_on_site
+      t.boolean :crew_on_site
+      t.references :ticket, foreign_key: true
 
       t.timestamps
     end

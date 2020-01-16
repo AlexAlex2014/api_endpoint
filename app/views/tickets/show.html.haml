@@ -1,0 +1,8 @@
+.main.item_show
+  %h1 Ticket info
+  .wrap
+    = render 'form_ticket', ticket: @ticket, part: false
+    = render 'form_excavator', excavator: @excavator
+    .button
+      = link_to 'Back', tickets_path
+#map

@@ -18,4 +18,50 @@ import "regenerator-runtime/runtime";
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-console.log('Hello World from Webpacker')
+$(document).on('turbolinks:load', function() {
+    if (gon.coords != undefined) {
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleGFsZXgyMDIwIiwiYSI6ImNrNTZxM2djYjA1dGgzZm1pOTh2ZDgzd3oifQ.7HFyz0xmdVYHiXPYwqWCtQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [+gon.coords[0][0], +gon.coords[0][1]],
+            zoom: 10
+        });
+        var coordinates = [];
+        for (let i=0; i < gon.coords.length; ++i){
+            coordinates.push([+gon.coords[i][0], +gon.coords[i][1]]);
+        }
+        map.on('load', function() {
+            var excavator_id = Math.random();
+            map.addLayer({
+                'id': 'maine' + excavator_id,
+                'type': 'fill',
+                'source': {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'Feature',
+                        'geometry': {
+                            'type': 'Polygon',
+                            'coordinates':
+                                [
+                                    coordinates
+                                ]
+                        }
+                    }
+                },
+                'layout': {},
+                'paint': {
+                    'fill-color': '#088',
+                    'fill-opacity': 0.8
+                }
+            });
+        });
+    };
+    if (!localStorage.getItem("reload")) {
+        localStorage.setItem("reload", "true");
+        location.reload();
+    }
+    else {
+        localStorage.removeItem("reload");
+    }
+});

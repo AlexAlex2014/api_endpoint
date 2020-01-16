@@ -1,0 +1,32 @@
+.tickets
+  .title
+    - if !part
+      %h3 Ticket info
+  .info
+    %p
+      Request number:
+    - if part
+      = link_to ticket_path(ticket) do
+        = ticket.request_number
+    - else
+      = ticket.request_number
+    %p
+      Sequence number:
+      = ticket.sequence_number
+    %p
+      Request type:
+      = ticket.request_type
+    %p
+      Response due date time:
+      = ticket.response_due_date_time
+    %p
+      Primary service area code:
+      = ticket.primary_service_area_code
+    %p
+      Additional service area codes:
+      = ticket.additional_service_area_codes
+    %p
+    - if part
+      %span
+        Dig site info:
+      = ticket.well_known_text

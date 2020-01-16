@@ -1,0 +1,117 @@
+// Place all the styles related to the Tikets controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.main {
+  opacity: 0.9;
+  h1 {
+    padding: 15px 30px;
+    font-size: 3em;
+  }
+  .tickets {
+    float: left;
+    width: 50%;
+    padding: 15px 0px;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+  .wrap {
+    padding: 0 30px;
+  }
+}
+.item_show {
+  z-index: 1000;
+  position: absolute;
+  width: 400px;
+  height: 100%;
+  left: 1.1%;
+  min-width: 195px;
+  background-color: #1a1a1a;
+  color: #e3e3e3;
+  .tickets {
+    float: none;
+    font-size: 16px;
+    width: 100%;
+  }
+}
+#map {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  min-width: 260px;
+  cursor: default;
+}
+.item_show .button {
+  margin: 15px 0px;
+}
+.item_show .button a {
+  font-size: 1.5em;
+  padding: 10px 44px;
+  background: #656565;
+  color: #fafafa;
+  border-radius: 3px;
+}
+.item_show .button a:hover {
+  background: #383333;
+}
+
+@media only screen and (max-width: 767px) {
+  .main {
+    h1 {
+      font-size: 2.6em;
+    }
+    .tickets {
+      float: none;
+      width: 100%;
+      font-size: 16px;
+    }
+  }
+  .item_show {
+    h1 {
+      font-size: 2.0em;
+    }
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .main {
+    h1 {
+      font-size: 2.6em;
+    }
+    .tickets {
+      font-size: 16px;
+    }
+  }
+  .item_show {
+    width: 100%;
+    height: 50%;
+    left: 1.1%;
+    bottom: 1.1%;
+    h1 {
+      padding: 10px 30px;
+      font-size: 1.6em;
+    }
+    .tickets {
+      float: left;
+      width: 50%;
+      font-size: 12px;
+      padding: 10px 0px;
+    }
+    .wrap {
+      padding: 0 5px;
+    }
+  }
+  .item_show .button {
+    margin: 0;
+  }
+  .item_show .button a {
+    font-size: 1.2em;
+    padding: 7px 34px;
+  }
+}

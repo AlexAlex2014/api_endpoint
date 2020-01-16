@@ -1,0 +1,5 @@
+.main
+  %h1 Tickets
+  .wrap
+    - @tickets.each do |ticket|
+      = render 'form_ticket', ticket: ticket, part: true
